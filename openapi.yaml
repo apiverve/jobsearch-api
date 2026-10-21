@@ -1,0 +1,187 @@
+openapi: 3.0.4
+info:
+  title: Job Search
+  description: >-
+    Job Search is a jobs API that searches the open positions at thousands of
+    companies at once. Search by job title keywords, location, country, remote
+    work, employment type, posting date or company, and get the newest matching
+    jobs first, each with its title, company, location, country, workplace type,
+    posting date and apply link. Paid plans add salary ranges, a minimum salary
+    filter, larger pages and each job's full description.
+  termsOfService: https://apiverve.com/terms/
+  contact:
+    name: APIVerve Support
+    email: hello@apiverve.com
+    url: https://apiverve.com/contact
+  version: 1.0.0
+externalDocs:
+  description: Learn more about APIVerve
+  url: https://docs.apiverve.com?utm_source=openapi
+servers:
+  - url: https://api.apiverve.com/
+paths:
+  /v1/jobsearch:
+    get:
+      summary: Job Search
+      description: Search open jobs across companies, newest first.
+      operationId: jobsearch
+      parameters:
+        - name: keyword
+          in: query
+          schema:
+            type: string
+          required: true
+          description: >-
+            Words that must all appear in the job title, for example data
+            engineer or product designer.
+          example: software engineer
+        - name: location
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Return only jobs with a location containing this text, for example
+            London, New York or Bavaria.
+          example: New York
+        - name: country
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Return only jobs in this country: an ISO 3166 code or a name, for
+            example US, GB or Germany.
+          example: US
+        - name: remote
+          in: query
+          schema:
+            type: boolean
+          required: false
+          description: >-
+            true returns only jobs open to remote work; false only jobs that are
+            not.
+          example: true
+        - name: employmentType
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Return only jobs of this employment type. Jobs that give no
+            employment type are kept, since many companies leave it blank; only
+            jobs of another type are left out.
+          example: full-time
+        - name: postedSince
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Return only jobs first published at or after this date or date-time
+            (ISO 8601, for example 2026-10-01), or within this age: a number
+            followed by h, d or w, for example 12h, 7d or 2w.
+          example: 7d
+        - name: company
+          in: query
+          schema:
+            type: string
+          required: false
+          description: >-
+            Return only jobs at this company, by its career board name, usually
+            the company name in lowercase, for example airbnb.
+          example: airbnb
+        - name: minSalary
+          in: query
+          schema:
+            type: number
+          required: false
+          description: >-
+            Return only jobs whose salary range reaches at least this amount, in
+            the job's own currency and pay period. Jobs that publish no salary
+            are left out when this is set.
+          example: 100000
+        - name: page
+          in: query
+          schema:
+            type: integer
+          required: false
+          description: >-
+            Page of results: 10 jobs per page up to page 5 on the free plan, 50
+            per page up to page 10 on paid plans.
+          example: 1
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    description: status
+                  error:
+                    type: string
+                    description: error
+                  data:
+                    type: object
+                    description: data
+              example:
+                status: ok
+                error: null
+                data:
+                  page: 1
+                  count: 2
+                  hasMore: true
+                  jobs:
+                    - id: b4f50cb0115efeef41cb
+                      title: Senior Network and Cloud Engineer
+                      company: Acturis
+                      location: London, England, United Kingdom
+                      locations:
+                        - London, England, United Kingdom
+                      country: GB
+                      remote: false
+                      workplaceType: hybrid
+                      employmentType: full-time
+                      postedAt: '2026-10-14T15:37:26.000Z'
+                      url: https://careers.acturis.com/o/senior-network-and-cloud-engineer
+                      applyUrl: https://careers.acturis.com/o/senior-network-and-cloud-engineer/c/new
+                      salary:
+                        min: null
+                        max: null
+                        currency: null
+                        interval: null
+                    - id: 43175a4af41a8c5a9a3b
+                      title: Senior AI Engineer in Computer Vision
+                      company: Faktion BV
+                      location: Antwerp, Vlaams Gewest, Belgium
+                      locations:
+                        - Antwerp, Vlaams Gewest, Belgium
+                      country: BE
+                      remote: false
+                      workplaceType: hybrid
+                      employmentType: full-time
+                      postedAt: '2026-08-24T13:17:35.000Z'
+                      url: https://talent.faktion.com/o/senior-ai-engineer-in-computer-vision
+                      applyUrl: https://talent.faktion.com/o/senior-ai-engineer-in-computer-vision/c/new
+                      salary:
+                        min: null
+                        max: null
+                        currency: null
+                        interval: null
+        '401':
+          description: Your request was not authorized, or your API Key was invalid
+        '404':
+          description: Requested resource was not found
+        '500':
+          description: A server error has occurred, try again later
+components:
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: x-api-key
+      in: header
+security:
+  - api_key: []
