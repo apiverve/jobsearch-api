@@ -1,0 +1,29 @@
+[project]
+name = "apiverve-jobsearch"
+version = "1.2.2"
+authors = [
+  { name="APIVerve", email="hello@apiverve.com" },
+]
+description = "Job Search is a jobs API that searches the open positions at thousands of companies at once. Search by job title keywords, location, country, remote work, employment type, posting date or company, and get the newest matching jobs first, each with its title, company, location, country, workplace type, posting date and apply link. Paid plans add salary ranges, a minimum salary filter, larger pages and each job's full description."
+keywords = ["job search api", "jobs api", "job listings api", "search jobs api", "remote jobs api"]
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+dependencies = [
+    "requests>=2.25.0"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Programming Language :: Python :: 3",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Natural Language :: English",
+]
+
+[project.urls]
+Homepage = "https://apiverve.com/marketplace/jobsearch?utm_source=pypi&utm_medium=referral&utm_content=homepage"
+Documentation = "https://docs.apiverve.com/ref/jobsearch?utm_source=pypi&utm_medium=referral&utm_content=docs"
+Repository = "https://github.com/apiverve/jobsearch-api"
+Twitter = "https://twitter.com/apivervehq"
