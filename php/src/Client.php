@@ -15,7 +15,7 @@ use APIVerve\Jobsearch\Exceptions\ValidationException;
  * @example Basic usage
  * ```php
  * $client = new Client('your_api_key');
- * $response = $client->execute(['keyword' => 'software engineer', 'location' => 'New York', 'country' => 'US', 'remote' => true, 'employmentType' => 'full-time', 'postedSince' => '7d', 'company' => 'airbnb', 'minSalary' => 100000, 'page' => 1]);
+ * $response = $client->execute(['keyword' => 'software engineer', 'location' => 'New York', 'country' => 'US', 'remote' => true, 'employmentType' => 'full-time', 'postedSince' => '7d', 'company' => 'airbnb', 'minSalary' => 100000, 'page' => 1, 'cursor' => '']);
  * print_r($response);
  * ```
  *
@@ -42,7 +42,8 @@ class Client
         'postedSince' => ['type' => 'string', 'required' => false, 'maxLength' => 30],
         'company' => ['type' => 'string', 'required' => false, 'maxLength' => 100],
         'minSalary' => ['type' => 'number', 'required' => false, 'min' => 0],
-        'page' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 10]
+        'page' => ['type' => 'integer', 'required' => false, 'min' => 1, 'max' => 10],
+        'cursor' => ['type' => 'string', 'required' => false, 'maxLength' => 400]
     ];
 
     /**

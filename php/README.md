@@ -36,7 +36,8 @@ $response = $client->execute([
     'postedSince' => '7d',
     'company' => 'airbnb',
     'minSalary' => 100000,
-    'page' => 1
+    'page' => 1,
+    'cursor' => ''
 ]);
 
 // Print the response
@@ -52,7 +53,7 @@ use APIVerve\Jobsearch\Exceptions\APIException;
 use APIVerve\Jobsearch\Exceptions\ValidationException;
 
 try {
-    $response = $client->execute(['keyword' => 'software engineer', 'location' => 'New York', 'country' => 'US', 'remote' => true, 'employmentType' => 'full-time', 'postedSince' => '7d', 'company' => 'airbnb', 'minSalary' => 100000, 'page' => 1]);
+    $response = $client->execute(['keyword' => 'software engineer', 'location' => 'New York', 'country' => 'US', 'remote' => true, 'employmentType' => 'full-time', 'postedSince' => '7d', 'company' => 'airbnb', 'minSalary' => 100000, 'page' => 1, 'cursor' => '']);
     print_r($response['data']);
 } catch (ValidationException $e) {
     echo "Validation error: " . implode(', ', $e->getErrors());
