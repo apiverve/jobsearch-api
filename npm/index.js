@@ -30,7 +30,7 @@ class jobsearchWrapper {
         this.baseURL = 'https://api.apiverve.com/v1/jobsearch';
 
         // Validation rules for parameters (generated from schema)
-        this.validationRules = {"keyword":{"type":"string","required":true,"maxLength":100},"location":{"type":"string","required":false,"maxLength":100},"country":{"type":"string","required":false,"maxLength":60},"remote":{"type":"boolean","required":false},"employmentType":{"type":"string","required":false},"postedSince":{"type":"string","required":false,"maxLength":30},"company":{"type":"string","required":false,"maxLength":100},"minSalary":{"type":"number","required":false,"min":0},"page":{"type":"integer","required":false,"min":1,"max":10,"default":1}};
+        this.validationRules = {"keyword":{"type":"string","required":true,"maxLength":100},"location":{"type":"string","required":false,"maxLength":100},"country":{"type":"string","required":false,"maxLength":60},"remote":{"type":"boolean","required":false},"employmentType":{"type":"string","required":false},"postedSince":{"type":"string","required":false,"maxLength":30},"company":{"type":"string","required":false,"maxLength":100},"minSalary":{"type":"number","required":false,"min":0},"page":{"type":"integer","required":false,"min":1,"max":10,"default":1},"cursor":{"type":"string","required":false,"maxLength":400}};
     }
 
     /**

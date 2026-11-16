@@ -65,7 +65,8 @@ var query = {
   postedSince: "7d",
   company: "airbnb",
   minSalary: 100000,
-  page: 1
+  page: 1,
+  cursor: ""
 };
 
 api.execute(query, function (error, data) {
@@ -93,7 +94,8 @@ var query = {
   postedSince: "7d",
   company: "airbnb",
   minSalary: 100000,
-  page: 1
+  page: 1,
+  cursor: ""
 };
 
 api.execute(query)
@@ -122,7 +124,8 @@ async function makeRequest() {
   postedSince: "7d",
   company: "airbnb",
   minSalary: 100000,
-  page: 1
+  page: 1,
+  cursor: ""
 };
 
     try {

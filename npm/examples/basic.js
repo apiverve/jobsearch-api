@@ -23,7 +23,8 @@ var query = {
   postedSince: "7d",
   company: "airbnb",
   minSalary: 100000,
-  page: 1
+  page: 1,
+  cursor: ""
 };
 
 // Make the API request using callback
