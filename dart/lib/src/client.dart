@@ -57,7 +57,8 @@ final _formatPatterns = {
 /// * [postedSince] - Return only jobs first published at or after this date or date-time (ISO 8601, for example 2026-10-01), or within this age: a number followed by h, d or w, for example 12h, 7d or 2w. [maxLength: 30]
 /// * [company] - Return only jobs at this company, by its career board name, usually the company name in lowercase, for example airbnb. [maxLength: 100]
 /// * [minSalary] - Return only jobs whose salary range reaches at least this amount, in the job's own currency and pay period. Jobs that publish no salary are left out when this is set. [min: 0]
-/// * [page] - Page of results: 10 jobs per page up to page 5 on the free plan, 50 per page up to page 10 on paid plans. [min: 1, max: 10]
+/// * [page] - Page of results: 10 jobs per page up to page 5 on the free plan, 50 per page up to page 10 on paid plans. To page through a search, prefer cursor, which carries on from where the last page stopped. [min: 1, max: 10]
+/// * [cursor] - The nextCursor value from the previous response, to get the next page of the same search. Send it with the same filters; page is then ignored. [maxLength: 400]
 class JobsearchClient {
   final String apiKey;
   final String baseUrl;
@@ -74,6 +75,7 @@ class JobsearchClient {
     'company': ValidationRule(type: 'string', required: false, maxLength: 100),
     'minSalary': ValidationRule(type: 'number', required: false, min: 0),
     'page': ValidationRule(type: 'integer', required: false, min: 1, max: 10),
+    'cursor': ValidationRule(type: 'string', required: false, maxLength: 400),
   };
 
   JobsearchClient(this.apiKey, {

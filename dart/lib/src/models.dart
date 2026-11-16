@@ -155,6 +155,7 @@ class JobsearchRequest {
   String? company;
   double? minSalary;
   int? page;
+  String? cursor;
 
   JobsearchRequest({
     required this.keyword,
@@ -166,6 +167,7 @@ class JobsearchRequest {
     this.company,
     this.minSalary,
     this.page,
+    this.cursor,
   });
 
   Map<String, dynamic> toJson() => {
@@ -178,5 +180,6 @@ class JobsearchRequest {
       if (company != null) 'company': company,
       if (minSalary != null) 'minSalary': minSalary,
       if (page != null) 'page': page,
+      if (cursor != null) 'cursor': cursor,
     };
 }

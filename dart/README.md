@@ -13,7 +13,7 @@ Add this to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  apiverve_jobsearch: ^1.2.5
+  apiverve_jobsearch: ^1.2.6
 ```
 
 Then run:
@@ -42,7 +42,8 @@ void main() async {
       'postedSince': '7d',
       'company': 'airbnb',
       'minSalary': 100000,
-      'page': 1
+      'page': 1,
+      'cursor': ''
     });
 
     print('Status: ${response.status}');
