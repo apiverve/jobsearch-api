@@ -44,7 +44,8 @@ response = client.execute({
   postedSince: "7d",
   company: "airbnb",
   minSalary: 100000,
-  page: 1
+  page: 1,
+  cursor: ""
 })
 
 # Print the response
@@ -56,7 +57,7 @@ puts response
 
 ```ruby
 begin
-  response = client.execute({ keyword: "software engineer", location: "New York", country: "US", remote: true, employmentType: "full-time", postedSince: "7d", company: "airbnb", minSalary: 100000, page: 1 })
+  response = client.execute({ keyword: "software engineer", location: "New York", country: "US", remote: true, employmentType: "full-time", postedSince: "7d", company: "airbnb", minSalary: 100000, page: 1, cursor: "" })
   puts response["data"]
 rescue APIVerve::Jobsearch::ValidationError => e
   puts "Validation error: #{e.errors.join(', ')}"

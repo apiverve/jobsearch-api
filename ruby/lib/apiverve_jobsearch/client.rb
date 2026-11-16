@@ -10,7 +10,7 @@ module APIVerve
     #
     # @example Basic usage
     #   client = APIVerve::Jobsearch::Client.new(api_key: "your_api_key")
-    #   response = client.execute({ keyword: "software engineer", location: "New York", country: "US", remote: true, employmentType: "full-time", postedSince: "7d", company: "airbnb", minSalary: 100000, page: 1 })
+    #   response = client.execute({ keyword: "software engineer", location: "New York", country: "US", remote: true, employmentType: "full-time", postedSince: "7d", company: "airbnb", minSalary: 100000, page: 1, cursor: "" })
     #   puts response
     #
     # @see https://apiverve.com/marketplace/jobsearch?utm_source=ruby&utm_medium=referral&utm_content=readme
@@ -19,7 +19,7 @@ module APIVerve
       DEFAULT_TIMEOUT = 30
 
       # Validation rules for parameters
-      VALIDATION_RULES = { 'keyword' => { type: 'string', required: true, max_length: 100 }, 'location' => { type: 'string', required: false, max_length: 100 }, 'country' => { type: 'string', required: false, max_length: 60 }, 'remote' => { type: 'boolean', required: false }, 'employmentType' => { type: 'string', required: false }, 'postedSince' => { type: 'string', required: false, max_length: 30 }, 'company' => { type: 'string', required: false, max_length: 100 }, 'minSalary' => { type: 'number', required: false, min: 0 }, 'page' => { type: 'integer', required: false, min: 1, max: 10 } }
+      VALIDATION_RULES = { 'keyword' => { type: 'string', required: true, max_length: 100 }, 'location' => { type: 'string', required: false, max_length: 100 }, 'country' => { type: 'string', required: false, max_length: 60 }, 'remote' => { type: 'boolean', required: false }, 'employmentType' => { type: 'string', required: false }, 'postedSince' => { type: 'string', required: false, max_length: 30 }, 'company' => { type: 'string', required: false, max_length: 100 }, 'minSalary' => { type: 'number', required: false, min: 0 }, 'page' => { type: 'integer', required: false, min: 1, max: 10 }, 'cursor' => { type: 'string', required: false, max_length: 400 } }
 
       # Format validation patterns
       FORMAT_PATTERNS = {
