@@ -75,7 +75,8 @@ namespace APIVerve.API.JobSearch
             { "postedSince", new ValidationRule { Type = "string", Required = false, MaxLength = 30 } },
             { "company", new ValidationRule { Type = "string", Required = false, MaxLength = 100 } },
             { "minSalary", new ValidationRule { Type = "number", Required = false, Min = 0 } },
-            { "page", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 10 } }
+            { "page", new ValidationRule { Type = "integer", Required = false, Min = 1, Max = 10 } },
+            { "cursor", new ValidationRule { Type = "string", Required = false, MaxLength = 400 } }
         };
 
         /// <summary>Format validation patterns</summary>

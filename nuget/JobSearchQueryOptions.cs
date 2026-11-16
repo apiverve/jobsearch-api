@@ -59,9 +59,15 @@ namespace APIVerve.API.JobSearch
         public double? MinSalary { get; set; }
 
         /// <summary>
-        /// Page of results: 10 jobs per page up to page 5 on the free plan, 50 per page up to page 10 on paid plans.
+        /// Page of results: 10 jobs per page up to page 5 on the free plan, 50 per page up to page 10 on paid plans. To page through a search, prefer cursor, which carries on from where the last page stopped.
         /// </summary>
         [JsonProperty("page")]
         public int? Page { get; set; }
+
+        /// <summary>
+        /// The nextCursor value from the previous response, to get the next page of the same search. Send it with the same filters; page is then ignored.
+        /// </summary>
+        [JsonProperty("cursor")]
+        public string Cursor { get; set; }
     }
 }

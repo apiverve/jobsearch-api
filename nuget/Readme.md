@@ -68,7 +68,8 @@ class Program
             PostedSince = "7d",
             Company = "airbnb",
             MinSalary = 100000,
-            Page = 1
+            Page = 1,
+            Cursor = ""
         };
 
         // Make the API call
@@ -140,7 +141,8 @@ public class Example
             PostedSince = "7d",
             Company = "airbnb",
             MinSalary = 100000,
-            Page = 1
+            Page = 1,
+            Cursor = ""
         };
 
         var response = await apiClient.ExecuteAsync(queryOptions);
@@ -180,7 +182,8 @@ public class Example
             PostedSince = "7d",
             Company = "airbnb",
             MinSalary = 100000,
-            Page = 1
+            Page = 1,
+            Cursor = ""
         };
 
         var response = apiClient.Execute(queryOptions);
@@ -225,7 +228,8 @@ public class Example
             PostedSince = "7d",
             Company = "airbnb",
             MinSalary = 100000,
-            Page = 1
+            Page = 1,
+            Cursor = ""
         };
 
         try
@@ -289,7 +293,8 @@ public class Example
             PostedSince = "7d",
             Company = "airbnb",
             MinSalary = 100000,
-            Page = 1
+            Page = 1,
+            Cursor = ""
         };
 
         try
@@ -338,7 +343,8 @@ var queryOptions = new JobSearchQueryOptions {
     PostedSince = "7d",
     Company = "airbnb",
     MinSalary = 100000,
-    Page = 1
+    Page = 1,
+    Cursor = ""
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -372,7 +378,8 @@ var queryOptions = new JobSearchQueryOptions {
     PostedSince = "7d",
     Company = "airbnb",
     MinSalary = 100000,
-    Page = 1
+    Page = 1,
+    Cursor = ""
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -398,7 +405,8 @@ var queryOptions = new JobSearchQueryOptions {
     PostedSince = "7d",
     Company = "airbnb",
     MinSalary = 100000,
-    Page = 1
+    Page = 1,
+    Cursor = ""
 };
 
 var response = await apiClient.ExecuteAsync(queryOptions);
@@ -418,7 +426,8 @@ var queryOptions = new JobSearchQueryOptions {
     PostedSince = "7d",
     Company = "airbnb",
     MinSalary = 100000,
-    Page = 1
+    Page = 1,
+    Cursor = ""
 };
 
 using (var apiClient = new JobSearchAPIClient("[YOUR_API_KEY]"))
